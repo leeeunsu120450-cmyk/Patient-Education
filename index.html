@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>잠든캠퍼스 웹페이지 안내 · 수면 관리 환자교육자료</title>
+<style>
+:root {
+--primary: #1d4ed8;
+--primary-dark: #1e3a8a;
+--primary-soft: #eff6ff;
+--teal: #0f766e;
+--teal-soft: #f0fdfa;
+--amber: #b45309;
+--amber-soft: #fffbeb;
+--bg: #f8fafc;
+--card: #ffffff;
+--text: #1e293b;
+--muted: #475569;
+--border: #cbd5e1;
+--radius: 14px;
+}
+
+* {
+box-sizing: border-box;
+}
+
+body {
+margin: 0;
+padding: 28px 16px 56px;
+font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+background-color: var(--bg);
+color: var(--text);
+line-height: 1.7;
+font-size: 16px;
+}
+
+.wrap {
+max-width: 920px;
+margin: 0 auto;
+}
+
+header.banner {
+background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 60%, #0284c7 100%);
+color: #ffffff;
+padding: 32px 28px;
+border-radius: 18px;
+margin-bottom: 22px;
+}
+
+.tag {
+display: inline-block;
+background: rgba(255, 255, 255, 0.2);
+border: 1px solid rgba(255, 255, 255, 0.35);
+padding: 4px 12px;
+border-radius: 999px;
+font-size: 0.88rem;
+font-weight: 700;
+margin-bottom: 10px;
+}
+
+header.banner h1 {
+margin: 0 0 10px;
+font-size: 1.85rem;
+line-height: 1.3;
+}
+
+header.banner p {
+margin: 0;
+font-size: 1.02rem;
+color: rgba(255, 255, 255, 0.95);
+}
+
+.quick-bar {
+background: var(--card);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 16px 20px;
+margin-bottom: 22px;
+}
+
+.quick-bar strong {
+display: block;
+font-size: 0.95rem;
+color: var(--primary-dark);
+margin-bottom: 8px;
+}
+
+.quick-links {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.quick-links a {
+display: inline-block;
+text-decoration: none;
+background: var(--primary-soft);
+color: var(--primary-dark);
+font-weight: 600;
+font-size: 0.92rem;
+padding: 6px 12px;
+border-radius: 8px;
+border: 1px solid #bfdbfe;
+}
+
+.quick-links a:hover {
+background: var(--primary);
+color: #ffffff;
+}
+
+section.box {
+background: var(--card);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 26px 24px;
+margin-bottom: 20px;
+}
+
+.box-head {
+display: flex;
+align-items: center;
+gap: 12px;
+padding-bottom: 12px;
+margin-bottom: 16px;
+border-bottom: 2px solid #e2e8f0;
+}
+
+.num {
+flex: 0 0 34px;
+height: 34px;
+border-radius: 9px;
+background: var(--primary);
+color: #ffffff;
+font-weight: 700;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1rem;
+}
+
+.box-head h2 {
+margin: 0;
+font-size: 1.32rem;
+color: var(--primary-dark);
+}
+
+h3 {
+margin: 18px 0 8px;
+font-size: 1.08rem;
+color: var(--text);
+}
+
+p {
+margin: 0 0 12px;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 14px 0 8px;
+font-size: 0.95rem;
+}
+
+th, td {
+border: 1px solid var(--border);
+padding: 12px 14px;
+text-align: left;
+vertical-align: top;
+}
+
+th {
+background: var(--primary-soft);
+color: var(--primary-dark);
+font-weight: 700;
+}
+
+ul.bullet-list, ol.step-list {
+margin: 8px 0 14px;
+padding-left: 22px;
+}
+
+ul.bullet-list li, ol.step-list li {
+margin-bottom: 8px;
+}
+
+.callout {
+border-radius: 12px;
+padding: 15px 18px;
+margin-top: 14px;
+}
+
+.callout.tip {
+background: var(--teal-soft);
+border-left: 4px solid var(--teal);
+}
+
+.callout.caution {
+background: var(--amber-soft);
+border-left: 4px solid var(--amber);
+}
+
+.callout-title {
+font-weight: 700;
+margin-bottom: 6px;
+color: var(--text);
+}
+
+.checklist {
+list-style: none;
+padding: 0;
+margin: 10px 0 0;
+}
+
+.checklist li {
+position: relative;
+padding-left: 28px;
+margin-bottom: 10px;
+}
+
+.checklist li::before {
+content: "☐";
+position: absolute;
+left: 0;
+top: 0;
+color: var(--primary);
+font-weight: 700;
+font-size: 1.1rem;
+}
+
+footer {
+background: var(--card);
+border: 1px solid var(--border);
+border-radius: var(--radius);
+padding: 18px 22px;
+color: var(--muted);
+font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+header.banner {
+padding: 24px 18px;
+}
+header.banner h1 {
+font-size: 1.5rem;
+}
+section.box {
+padding: 20px 16px;
+}
+table, thead, tbody, th, td, tr {
+display: block;
+}
+thead {
+display: none;
+}
+tr {
+margin-bottom: 12px;
+border: 1px solid var(--border);
+border-radius: 10px;
+overflow: hidden;
+}
+td {
+border: none;
+border-bottom: 1px solid #e2e8f0;
+}
+td:last-child {
+border-bottom: none;
+}
+}
+
+@media print {
+body {
+background: #ffffff;
+padding: 0;
+}
+.quick-bar {
+display: none;
+}
+section.box, header.banner, footer {
+break-inside: avoid;
+}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="banner">
+<div class="tag">환자 교육 안내 · 웹페이지 소개 자료</div>
+<h1>‘잠든캠퍼스’ 웹사이트로 수면 습관 이해하고 관리하기</h1>
+<p>
+이 자료는 수면 관리 챗봇 <strong>‘잠든캠퍼스(SleepManager Chatbot)’</strong> 소개 웹사이트가 어떤 정보를
+제공하는지 쉽게 알려드리고, 오늘부터 집에서 실천할 수 있는 수면 관리 방법을 안내합니다.
+</p>
+</header>
+
+<nav class="quick-bar" aria-label="안내 순서">
+<strong>읽는 순서</strong>
+<ul class="quick-links">
+<li><a href="#s1">1. 이 웹사이트는 무엇인가요?</a></li>
+<li><a href="#s2">2. 수면장애의 유형과 원인</a></li>
+<li><a href="#s3">3. 웹사이트에서 알려주는 4가지 핵심 포인트</a></li>
+<li><a href="#s4">4. 챗봇의 주요 기능과 오늘 할 일</a></li>
+</ul>
+</nav>
+
+<!-- 1. 웹사이트 목적 및 개요 -->
+<section id="s1" class="box">
+<div class="box-head">
+<div class="num">1</div>
+<h2>이 웹사이트는 무엇을 안내하나요?</h2>
+</div>
+<p>
+<strong>‘잠든캠퍼스’ 소개 웹사이트</strong>는 불규칙한 생활 일정, 과제와 시험 부담, 스마트폰 사용 등으로
+수면 리듬이 흐트러지기 쉬운 대학생과 청년층이 <strong>신뢰할 수 있는 수면 관리 챗봇</strong>의 특징과 기능을
+미리 살펴볼 수 있도록 만든 안내 페이지입니다.
+</p>
+<ul class="bullet-list">
+<li><strong>목적:</strong> 챗봇이 어떤 근거로 수면 습관을 분석하고, 어떤 도움을 줄 수 있는지 한눈에 이해하도록 돕습니다.</li>
+<li><strong>쉬운 용어 풀이:</strong> <em>‘수면 위생’</em>이란 잠을 잘 자기 위해 지키는 규칙적인 생활·환경 습관을 뜻하며,
+<em>‘수면 사이클’</em>이란 잠자는 동안 얕은 잠과 깊은 잠이 한 바퀴 도는 주기(약 90~100분)를 말합니다.</li>
+</ul>
+</section>
+
+<!-- 2. 수면장애의 유형과 유형별 원인 -->
+<section id="s2" class="box">
+<div class="box-head">
+<div class="num">2</div>
+<h2>수면장애의 주요 유형과 원인</h2>
+</div>
+<p>
+잠과 관련된 어려움은 나타나는 모습과 원인에 따라 몇 가지 유형으로 나눌 수 있습니다.
+내 증상이 어느 쪽에 가까운지 먼저 살펴보세요.
+</p>
+
+<table>
+<thead>
+<tr>
+<th style="width: 26%;">수면장애 유형</th>
+<th style="width: 34%;">주로 나타나는 모습</th>
+<th style="width: 40%;">흔한 원인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>입면 장애</strong></td>
+<td>누워도 잠들기 어렵거나, 스마트폰 등으로 잠드는 시각이 늦어짐</td>
+<td>늦은 시간 카페인 섭취, 취침 전 스마트폰·화면 빛(블루라이트), 긴장·불안감</td>
+</tr>
+<tr>
+<td><strong>수면 유지 장애</strong></td>
+<td>잠든 뒤 밤중에 자주 깨거나, 한 번 깨면 다시 잠들기 힘듦</td>
+<td>야식·과식, 음주, 불규칙한 잠자리 시간, 덥거나 시끄러운 침실 환경</td>
+</tr>
+<tr>
+<td><strong>주간 졸림증 / 수면 과다</strong></td>
+<td>낮에 지나치게 졸리거나 무기력하고, 자도 자도 피곤함</td>
+<td>수면 시간 부족, 수면의 질 저하, 지나치게 긴 낮잠, 어긋난 생체 리듬</td>
+</tr>
+<tr>
+<td><strong>스마트폰 중독형 수면 지연 및 불규칙 패턴</strong></td>
+<td>침대에서 영상·SNS를 보느라 늦게 자고, 평일·주말 기상 시간이 들쭉날쭉함</td>
+<td>자기 전 영상·SNS 시청 습관, 밤샘과 주말 몰아자기 반복</td>
+</tr>
+</tbody>
+</table>
+
+<div class="callout caution">
+<div class="callout-title">진료 상담이 필요한 경우</div>
+<p style="margin: 0;">
+웹페이지와 챗봇은 생활 습관 점검과 자가 관리를 돕는 보조 자료입니다. 심한 코골이나 숨 멈춤이 의심되거나,
+수면 문제가 몇 주 이상 이어져 낮 생활이 크게 어렵다면 병원 진료를 받으시기 바랍니다.
+</p>
+</div>
+</section>
+
+<!-- 3. 웹사이트에서 제시하는 4가지 신뢰 포인트 -->
+<section id="s3" class="box">
+<div class="box-head">
+<div class="num">3</div>
+<h2>웹사이트에서 설명하는 4가지 핵심 포인트</h2>
+</div>
+<p>
+보내주신 <code>index.html</code> 웹사이트는 ‘잠든캠퍼스’ 챗봇을 믿고 활용할 수 있는 이유로 다음 네 가지를 강조합니다.
+</p>
+<ol class="step-list">
+<li><strong>맞춤형 진단:</strong> 입면 장애, 수면 유지 장애, 주간 졸림증 등 흔한 수면 문제를 나누어 증상별 원인과 해결법을 안내합니다.</li>
+<li><strong>수면 주기 기반 계산:</strong> 약 90~100분 단위의 수면 주기와 권장 수면 시간(7~8시간)을 참고해 기상 시간에 맞춘 취침 시간을 계산합니다.</li>
+<li><strong>구체적인 행동 미션:</strong> ‘오후 4시 이후 카페인 줄이기’, ‘자기 전 1시간 스마트폰 멀리하기’처럼 바로 실행할 수 있는 행동 목표를 제시합니다.</li>
+<li><strong>표준 수면 위생 원칙:</strong> 규칙적인 리듬 유지와 침실 환경 관리 등 기본적인 수면 위생 수칙을 바탕으로 정보를 구성했습니다.</li>
+</ol>
+</section>
+
+<!-- 4. 챗봇 주요 기능 및 오늘 바로 실천할 행동 -->
+<section id="s4" class="box">
+<div class="box-head">
+<div class="num">4</div>
+<h2>챗봇 주요 기능과 오늘 실천할 행동</h2>
+</div>
+
+<h3>웹사이트에 소개된 챗봇의 주요 기능</h3>
+<ul class="bullet-list">
+<li><strong>수면 패턴 진단 및 시간 조절:</strong> 평소 취침·기상 시간을 살피고 수면 부족 여부를 확인해 권장 수면 일정을 제안합니다.</li>
+<li><strong>수면장애 유형별 원인 및 해결법:</strong> 입면·유지·과다 수면과 스마트폰으로 인한 수면 지연에 대해 대처 방법을 안내합니다.</li>
+<li><strong>행동 변화 챌린지 및 미션:</strong> 매일 하나씩 실천할 수 있는 수면 습관 미션을 제공합니다.</li>
+</ul>
+
+<div class="callout tip">
+<div class="callout-title">오늘 밤부터 시작하는 3단계 실행 체크리스트</div>
+<ul class="checklist">
+<li><strong>1단계 (시간 확인):</strong> 오늘 평소 취침 시간과 기상 시간을 적어 보고, 하루 7~8시간 정도 자고 있는지 확인하세요.</li>
+<li><strong>2단계 (미션 1개 선택):</strong> ‘오후 4시 이후 카페인 음료 줄이기’ 또는 ‘잠들기 1시간 전 스마트폰 멀리하기’ 중 오늘 할 수 있는 1가지만 고르세요.</li>
+<li><strong>3단계 (기상 리듬 유지):</strong> 주말에도 평소 일어나는 시간과 너무 크게 차이 나지 않도록 일어나 보세요.</li>
+</ul>
+</div>
+</section>
+
+<footer>
+<strong>안내:</strong> 본 교육자료는 제출된 <code>index.html</code> 웹사이트의 내용을 바탕으로 환자·이용자가
+이해하고 행동으로 옮기기 쉽도록 정리한 요약본입니다.
+</footer>
+</div>
+</body>
+</html>
